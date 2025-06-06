@@ -1,4 +1,4 @@
-# Algorithms
+# C Algorithms
 
 ## Overview
 
