@@ -2,7 +2,9 @@
 
 ## Overview
 
-The algorithms repository provides a collection of essential algorithm implementations, including sorting, searching, and more, organized for easy integration and use in various projects.
+The **algorithms** repository provides a comprehensive collection of core algorithm implementations in C, organized for ease of use and integration. This repository focuses on algorithmic techniques such as sorting, searching, graph traversal, dynamic programming, string matching, and statistical methods.
+
+All fundamental data structures (linked lists, trees, heaps, tries, disjoint sets, etc.) are implemented separately in the **c-data-structures** repository, allowing you to combine and reuse these components efficiently.
 
 ## Table of Contents
 
@@ -10,73 +12,53 @@ The algorithms repository provides a collection of essential algorithm implement
 - [Usage](#usage)
   - [Requirements](#requirements)
   - [Setup](#setup)
-  - [Operator Guide](#operator-guide)
+  - [Building and Cleaning](#building-and-cleaning)
   - [Testing](#testing)
-- [Known Issues/Bugs](#known-issuesbugs)
 - [Repository Structure](#repository-structure)
+- [Known Issues/Bugs](#known-issuesbugs)
 
 ## Usage
 
 ### Requirements
 
 - **Hardware**: Any machine capable of running C.
-- **Operating System**: Recommended Ubuntu 22.04.
+- **Operating System**: Recommended Ubuntu 22.04 or similar Linux distro.
 - **Software**: 
-  - `git` to clone the repo
-  - Dependencies installed via `setup.sh`
+  - `git` to clone the repository
+  - Build tools: `gcc`, `make`
+  - `clang-format-15` for formatting (optional, for code style)
+  - `valgrind` for memory leak detection (optional)
 
 ### Setup
 
-1. Install `git`:
-
-   ```sh
-   sudo apt install git
-   ```
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/yourusername/algorithms.git
-   cd algorithms/
+   git clone https://github.com/yourusername/c-algorithms.git
+   cd c-algorithms/
    ```
-1. Install necessary dependencies:
+1. Run the setup script to install dependencies (if applicable):
 
    ```sh
    ./setup.sh
    ```
 
-### Operator Guide
+### Building and Cleaning
 
-To compile the C files and generate the object files, use:
-
+- To compile all data structure implementations:
 ```sh
 make all
 ```
-
-To remove the generated object files and clean up the build directory, use:
-
+- To clean up build files:
 ```sh
 make clean
 ```
-
-To use the algorithms, write a program that links against the generated object files and utilizes the internal functions.
 
 ### Testing
 
-Each algorithm includes tests located in the tests/ directory. The tests cover edge cases, performance benchmarks, and comparisons with built-in library functions.
+All data structures include tests in the tests/ directory covering edge cases and correctness.
 
-To compile the tests, use:
-
-```sh
-make test
-```
-
-To remove the generated object files and clean up the build directory, use:
-
-```sh
-make clean
-```
-
-The testing suite supports various command-line arguments:
+Run tests with:
 
 ```sh
 ./bin/test_main help
@@ -88,70 +70,108 @@ The testing suite supports various command-line arguments:
 - `list`: Lists all available test suite names.
 - `<specific suite name>`: Runs a specific test suite.
 
-The Makefile includes additional commands:
-
+Additional Makefile commands:
+- Format all code:
 ```sh
 make format
+```
+- Run tests under Valgrind to check memory usage:
+```sh
 make valgrind
 ```
-
-- `format`: Formats all C source and header files using clang-format-15 to match Barr C standards.
-- `valgrind`: Runs all tests with Valgrind to check for memory leaks.
-
-## Known Issues/Bugs
-
-No known issues.
 
 ## Repository Structure
 
 ```
 algorithms/
 │
-├── src/
-│   ├── sorting/
-│   │   ├── bubble_sort.c
-│   │   ├── merge_sort.c
-│   │   └── quick_sort.c
-│   ├── searching/
-│   │   ├── binary_search.c
-│   │   ├── dfs.c
-│   │   └── bfs.c
-│   ├── dynamic_programming/
-│   │   ├── fibonacci.c
-│   │   ├── knapsack.c
-│   │   └── lcs.c
-│   ├── graphs/
-│   │   ├── dijkstra.c
-│   │   ├── kruskal.c
-│   │   └── prim.c
-│   ├── strings/
-│   │   ├── kmp.c
-│   │   ├── rabin_karp.c
-│   │   └── trie.c
-│
 ├── include/
 │   ├── sorting/
 │   │   ├── bubble_sort.h
+│   │   ├── counting_sort.h
+│   │   ├── heap_sort.h
+│   │   ├── insertion_sort.h
 │   │   ├── merge_sort.h
-│   │   └── quick_sort.h
+│   │   ├── quick_sort.h
+│   │   ├── radix_sort.h
+│   │   └── randomized_quick_sort.h
+│   │
 │   ├── searching/
 │   │   ├── binary_search.h
-│   │   ├── dfs.h
-│   │   └── bfs.h
+│   │   ├── randomized_select.h
+│   │   └── deterministic_select.h
+│   │
 │   ├── dynamic_programming/
 │   │   ├── fibonacci.h
 │   │   ├── knapsack.h
 │   │   └── lcs.h
+│   │
 │   ├── graphs/
+│   │   ├── bellman_ford.h
 │   │   ├── dijkstra.h
 │   │   ├── kruskal.h
 │   │   └── prim.h
+│   │
 │   ├── strings/
 │   │   ├── kmp.h
 │   │   ├── rabin_karp.h
-│   │   └── trie.h
-|
-├── tests/
+│   │   └── trie_algorithms.h
+│   │
+│   ├── statistics/
+│   │   ├── mc_circumference.h
+│   │   ├── mc_unfair_dice.h
+│   │   └── rngs.h
 │
+├── src/
+│   ├── sorting/
+│   │   ├── bubble_sort.c
+│   │   ├── counting_sort.c
+│   │   ├── heap_sort.c
+│   │   ├── insertion_sort.c
+│   │   ├── merge_sort.c
+│   │   ├── quick_sort.c
+│   │   ├── radix_sort.c
+│   │   └── randomized_quick_sort.c
+│   │
+│   ├── searching/
+│   │   ├── binary_search.c
+│   │   ├── randomized_select.c
+│   │   └── deterministic_select.c
+│   │
+│   ├── dynamic_programming/
+│   │   ├── fibonacci.c
+│   │   ├── knapsack.c
+│   │   └── lcs.c
+│   │
+│   ├── graphs/
+│   │   ├── bellman_ford.c
+│   │   ├── dijkstra.c
+│   │   ├── kruskal.c
+│   │   └── prim.c
+│   │
+│   ├── strings/
+│   │   ├── kmp.c
+│   │   ├── rabin_karp.c
+│   │   └── trie_algorithms.c
+│   │
+│   ├── statistics/
+│   │   ├── mc_circumference.c
+│   │   ├── mc_unfair_dice.c
+│   │   └── rngs.c
+│
+├── tests/
+│   ├── sorting_tests.c
+│   ├── searching_tests.c
+│   ├── dp_tests.c
+│   ├── graph_tests.c
+│   ├── string_tests.c
+│   ├── statistics_tests.c
+│
+├── Makefile
+├── setup.sh
 └── README.md
 ```
+
+## Known Issues/Bugs
+
+No known issues.
