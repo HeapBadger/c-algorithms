@@ -1,14 +1,11 @@
 # 🧠 C Algorithms
 
-## Overview
-
 The **algorithms** repository provides a comprehensive collection of core algorithm implementations in C, organized for ease of use and integration. This repository focuses on algorithmic techniques such as sorting, searching, graph traversal, dynamic programming, string matching, and statistical methods.
 
 All fundamental data structures (linked lists, trees, heaps, tries, disjoint sets, etc.) are implemented separately in the **c-data-structures** repository, allowing you to combine and reuse these components efficiently.
 
-## Table of Contents
+## 🧭 Table of Contents
 
-- [Overview](#overview)
 - [Usage](#usage)
   - [Requirements](#requirements)
   - [Setup](#setup)
@@ -19,7 +16,7 @@ All fundamental data structures (linked lists, trees, heaps, tries, disjoint set
 
 ## 🚀 Usage
 
-### Requirements
+### 📝 Requirements
 
 - **Hardware**: Any machine capable of running C.
 - **Operating System**: Recommended Ubuntu 22.04 or similar Linux distro.
@@ -29,7 +26,7 @@ All fundamental data structures (linked lists, trees, heaps, tries, disjoint set
   - `clang-format-15` for formatting (optional, for code style)
   - `valgrind` for memory leak detection (optional)
 
-### Setup
+### ⚙️ Setup
 
 1. Clone the repository:
 
@@ -43,7 +40,7 @@ All fundamental data structures (linked lists, trees, heaps, tries, disjoint set
    ./setup.sh
    ```
 
-### Building and Cleaning
+### 🛠️ Building and Cleaning
 
 - To compile all data structure implementations:
 ```sh
@@ -54,7 +51,7 @@ make all
 make clean
 ```
 
-### Testing
+### 🧪 Testing
 
 All data structures include tests in the tests/ directory covering edge cases and correctness.
 
