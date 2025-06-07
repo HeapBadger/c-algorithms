@@ -1,4 +1,4 @@
-# C Algorithms
+# 🧠 C Algorithms
 
 ## Overview
 
@@ -17,7 +17,7 @@ All fundamental data structures (linked lists, trees, heaps, tries, disjoint set
 - [Repository Structure](#repository-structure)
 - [Known Issues/Bugs](#known-issuesbugs)
 
-## Usage
+## 🚀 Usage
 
 ### Requirements
 
@@ -80,7 +80,7 @@ make format
 make valgrind
 ```
 
-## Repository Structure
+## 📁 Repository Structure
 
 ```
 algorithms/
@@ -172,6 +172,6 @@ algorithms/
 └── README.md
 ```
 
-## Known Issues/Bugs
+## 🪲 Known Issues/Bugs
 
 No known issues.
